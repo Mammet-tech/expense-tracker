@@ -2,13 +2,8 @@ import React, { useState } from "react";
 import MyForm from "./form";
 import ExpenseTable from "./ExpenseTable";
 
-const ExpenseTracker = () => {
-  const [expenses, setExpenses] = useState([]);
+const ExpenseTracker = ({ expenses, addExpense }) => {
   const [searchTerm, setSearchTerm] = useState("");
-
-  const addExpense = (newExpense) => {
-    setExpenses([...expenses, newExpense]);
-  };
 
   const filteredExpenses = expenses.filter((expense) =>
     expense.name.toLowerCase().includes(searchTerm.toLowerCase())

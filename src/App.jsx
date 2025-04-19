@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 
+import ExpenseTracker from "./Expensetracker";
+
 function App() {
+  const [expenses, setExpenses] = useState([]);
+
+  const addExpense = (newExpense) => {
+    setExpenses([...expenses, newExpense]);
+  };
+
   return (
     <>
       <div className="App max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg">
@@ -13,6 +21,8 @@ function App() {
           to track your expenses and income, and provides a summary of your
           financial situation.
         </p>
+
+        <ExpenseTracker expenses={expenses} addExpense={addExpense} />
       </div>
     </>
   );
